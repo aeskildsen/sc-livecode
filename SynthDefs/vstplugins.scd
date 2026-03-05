@@ -1,5 +1,7 @@
 // Start the
 s.waitForBoot({
+	Event.addParentType(\vst_midi, (stretch: 4, dur: 0.25, amp: 0.4));
+
 	SynthDef(\vsti, { arg out = 0;
 		Out.ar(out, VSTPlugin.ar(nil, 2));
 	}).add;
@@ -15,13 +17,13 @@ s.waitForBoot({
 	~glock = \vstDef -> \vsti;
 	v.glock = VSTPluginNodeProxyController(~glock);
 
-	~clarinet = \vstDef -> \vsti;
-	v.clarinet = VSTPluginNodeProxyController(~clarinet);
+	/*~clarinet = \vstDef -> \vsti;
+	v.clarinet = VSTPluginNodeProxyController(~clarinet);*/
 
 	v.loadPresets = {
 		v.piano.loadPreset("uprightPiano");
 		v.glock.loadPreset("glock");
-		v.clarinet.loadPreset("clarinet");
+		//v.clarinet.loadPreset("clarinet");
 	};
 	"".postln;
 	"Use with Pdef:".postln;

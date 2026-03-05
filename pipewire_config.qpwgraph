@@ -1,17 +1,25 @@
 <!DOCTYPE patchbay>
-<patchbay name="pipewire_config" version="0.9.7">
+<patchbay name="pipewire_config" version="0.9.8">
  <items>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="SuperCollider" port="SuperCollider:out_4"/>
-   <input node="REAPER" port="REAPER:in4"/>
+   <output node="SuperCollider" port="SuperCollider:out_8"/>
+   <input node="REAPER" port="REAPER:in8"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="SuperCollider" port="SuperCollider:out_7"/>
-   <input node="REAPER" port="REAPER:in7"/>
+   <output node="SuperCollider" port="SuperCollider:out_16"/>
+   <input node="REAPER" port="REAPER:in16"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="SuperCollider" port="SuperCollider:out_5"/>
-   <input node="REAPER" port="REAPER:in5"/>
+   <output node="SuperCollider" port="SuperCollider:out_14"/>
+   <input node="REAPER" port="REAPER:in14"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="SuperCollider" port="SuperCollider:out_9"/>
+   <input node="REAPER" port="REAPER:in9"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="REAPER" port="REAPER:out2"/>
+   <input node="Raptor Lake-P/U/H cAVS Headphones" port="Headphones:playback_FR"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
    <output node="SuperCollider" port="SuperCollider:out_6"/>
@@ -26,20 +34,40 @@
    <input node="REAPER" port="REAPER:in1"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="SuperCollider" port="SuperCollider:out_8"/>
-   <input node="REAPER" port="REAPER:in8"/>
+   <output node="SuperCollider" port="SuperCollider:out_7"/>
+   <input node="REAPER" port="REAPER:in7"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="SuperCollider" port="SuperCollider:out_9"/>
-   <input node="REAPER" port="REAPER:in9"/>
+   <output node="SuperCollider" port="SuperCollider:out_5"/>
+   <input node="REAPER" port="REAPER:in5"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="SuperCollider" port="SuperCollider:out_14"/>
-   <input node="REAPER" port="REAPER:in14"/>
+   <output node="SuperCollider" port="SuperCollider:out_4"/>
+   <input node="REAPER" port="REAPER:in4"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="SuperCollider" port="SuperCollider:out_16"/>
-   <input node="REAPER" port="REAPER:in16"/>
+   <output node="SuperCollider" port="SuperCollider:out_11"/>
+   <input node="REAPER" port="REAPER:in11"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="SuperCollider" port="SuperCollider:out_3"/>
+   <input node="REAPER" port="REAPER:in3"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="SuperCollider" port="SuperCollider:out_13"/>
+   <input node="REAPER" port="REAPER:in13"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="REAPER" port="REAPER:out1"/>
+   <input node="AudioBox Go Analog Stereo" port="AudioBox Go:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="REAPER" port="REAPER:out1"/>
+   <input node="Raptor Lake-P/U/H cAVS Headphones" port="Headphones:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="SuperCollider" port="SuperCollider:out_15"/>
+   <input node="REAPER" port="REAPER:in15"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
    <output node="SuperCollider" port="SuperCollider:out_10"/>
@@ -52,26 +80,6 @@
   <item node-type="pipewire" port-type="pipewire-audio">
    <output node="SuperCollider" port="SuperCollider:out_2"/>
    <input node="REAPER" port="REAPER:in2"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="REAPER" port="REAPER:out1"/>
-   <input node="AudioBox Go Analog Stereo" port="AudioBox Go:playback_FL"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="SuperCollider" port="SuperCollider:out_15"/>
-   <input node="REAPER" port="REAPER:in15"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="SuperCollider" port="SuperCollider:out_3"/>
-   <input node="REAPER" port="REAPER:in3"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="SuperCollider" port="SuperCollider:out_13"/>
-   <input node="REAPER" port="REAPER:in13"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="SuperCollider" port="SuperCollider:out_11"/>
-   <input node="REAPER" port="REAPER:in11"/>
   </item>
  </items>
 </patchbay>

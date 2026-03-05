@@ -1,7 +1,7 @@
 SynthDef(\oneshotStereo, {
 	arg amp = 0.2, out = 0, pan = 0,
 	buf, cent = 0, rate = 1,
-	drive = 0, lpf_cutoff = 20000, hpf_cutoff = 20;
+	drive = 0, cutoff = 20000, hpf_cutoff = 20;
 	var freqScale = (cent*0.01).midiratio;
 	var dur = BufDur.kr(buf) / rate.abs;
 	var sig = PlayBuf.ar(
@@ -13,9 +13,9 @@ SynthDef(\oneshotStereo, {
 	sig = (sig* drive.linexp(0, 1, 1, 25)).tanh; // drive/distortion
 	sig = sig * (1 - (drive * 0.5)).pow(2.5);
 
-	sig = sig * Env.linen(0.001, dur - 0.002, 0.001).kr(doneAction: 2);
+	sig = sig * Env.linen(0.002, dur - 0.01, 0.005).kr(doneAction: 2);
 
-	sig = LPF.ar(sig, lpf_cutoff);
+	sig = LPF.ar(sig, cutoff);
 	sig = HPF.ar(sig, hpf_cutoff);
 	sig = Balance2.ar(sig[0], sig[1], pan, amp);
 	Out.ar(out, sig);
@@ -24,7 +24,7 @@ SynthDef(\oneshotStereo, {
 SynthDef(\oneshotMono, {
 	arg amp = 0.2, out = 0, pan = 0,
 	buf, cent = 0, rate = 1,
-	drive = 0, lpf_cutoff = 20000, hpf_cutoff = 20;
+	drive = 0, cutoff = 20000, hpf_cutoff = 20;
 	var freqScale = (cent*0.01).midiratio;
 	var dur = BufDur.kr(buf) / rate.abs;
 	var sig = PlayBuf.ar(
@@ -36,9 +36,9 @@ SynthDef(\oneshotMono, {
 	sig = (sig* drive.linexp(0, 1, 1, 25)).tanh; // drive/distortion
 	sig = sig * (1 - (drive * 0.5)).pow(2.5);
 
-	sig = sig * Env.linen(0.001, dur - 0.002, 0.001).kr(doneAction: 2);
+	sig = sig * Env.linen(0.002, dur - 0.01, 0.005).kr(doneAction: 2);
 
-	sig = LPF.ar(sig, lpf_cutoff);
+	sig = LPF.ar(sig, cutoff);
 	sig = HPF.ar(sig, hpf_cutoff);
 	sig = Pan2.ar(sig, pan, amp);
 	Out.ar(out, sig);
@@ -46,15 +46,13 @@ SynthDef(\oneshotMono, {
 
 Event.addEventType(\oneshot, {
 	~instrument = \oneshotStereo;
-	~dur = 0.25;
 	~type = \note;
 	currentEnvironment.play;
-});
+}, (dur: 1/4));
 
 SynthDef(\sliceStereo, {
 	arg buf, slice = 0, numSlices = 16,
-	atk = 0.002, rel = 0.010,
-	transpose = 0, direction = 1,
+	atk = 0.002, rel = 0.010, rate = 1,
 	drive = 0, cutoff = 20000, rq = 1,
 	amp = 0.2, out = 0, pan = 0;
 
@@ -71,8 +69,9 @@ SynthDef(\sliceStereo, {
 	var sig = PlayBuf.ar(
 		numChannels: 2,
 		bufnum: buf,
-		rate: BufRateScale.kr(buf) * transpose.midiratio * direction.sign,
-		startPos: BufFrames.kr(buf) * startPos
+		rate: BufRateScale.kr(buf) * rate,
+		startPos: BufFrames.kr(buf) * startPos,
+		loop: 1
 	);
 
 	sig = (sig * drive.linexp(0, 1, 1, 100)).tanh;

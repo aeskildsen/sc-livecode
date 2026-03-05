@@ -1,5 +1,5 @@
 SynthDef(\noisy, {
-	arg out = 0, amp = 0.2, pan = 0, drive = 0,
+	arg out = 0, amp = 0.1, pan = 0, drive = 0, cutoff = 16000,
 	atk = 0.01, rel = 0.01, gate = 1, freq = 1000;
 	var sig, env;
 	env = Env.asr(atk, 1, rel).kr(2, gate);
@@ -15,6 +15,7 @@ SynthDef(\noisy, {
 		[1, 1, 1, 1]
 	], sig);
 	sig = (sig * drive.linexp(0,1,1,50)).tanh;
+	sig = LPF.ar(sig, cutoff);
 	sig = sig * env;
 	Out.ar(out, Balance2.ar(sig[0], sig[1], pan, amp));
 }).add;

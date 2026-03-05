@@ -16,12 +16,12 @@ Routine{
 		s.sync;
 
 		// the SynthDef
-		SynthDef(\moogy, {
+		SynthDef(\moog, {
 			arg freq = 440,	amp = 0.2,
 			out = 0, pan = 0, glide = 0.05,
 			tune = 5,
 			// envelope settings
-			atk = 0.05, dec = 0.1, sus = 0.6, rel = 1, gate = 1,
+			atk = 0.05, dec = 0.1, sus = 0.6, rel = 1.5, gate = 1,
 			// filter settings
 			cutoffOct = 3, fcontourOct = 1, fgain = 0.1,
 			fatk = 0.05, fdec = 0.1, fsus = 1, frel = 0.5,
@@ -34,7 +34,7 @@ Routine{
 
 			freq = freq.lag(glide) * LFNoise1.kr(0.02).bipolar(0.05).midiratio;
 
-			env = Env.adsr(atk, dec, sus, rel).kr(2, gate);
+			env = Env.adsr(atk, dec, sus, rel, curve: [-4, 2, \sine]).kr(2, gate);
 
 			sources = 3.collect{
 				arg num;
@@ -71,9 +71,15 @@ Routine{
 
 	});
 
-	Event.addEventType(\moog, {
-		~instrument = \moogy;
-		~type = \note;
-		currentEnvironment.play;
-	});
 }.play;
+
+Event.addEventType(\bass, {
+	~atk = 0.005;
+	~instrument = \moog;
+	~octave = 3;
+	~rel = 0.1;
+	~cutoffOct = 3;
+	~fgain = 0.5;
+	~type = \note;
+	currentEnvironment.play;
+});
