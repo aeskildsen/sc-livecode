@@ -18,5 +18,4 @@ SynthDef(\noisy, {
 	sig = LPF.ar(sig, cutoff);
 	sig = sig * env;
 	Out.ar(out, Balance2.ar(sig[0], sig[1], pan, amp));
-}).add;
-
+});

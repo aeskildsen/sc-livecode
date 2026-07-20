@@ -1,0 +1,323 @@
+// LUFS Momentary Meter (Minimal) - Based on Cockos Loudness Meter
+// License: LGPL - http://www.gnu.org/licenses/lgpl.html
+
+desc: LUFS-M Meter (Momentary)
+
+slider1:cfg_textsize=0<-2,8,1>-Text size
+slider2:cfg_yscale=1.8<0.5,4,0.1>-Y axis scaling
+slider3:cfg_mono=0<0,1,1{off,on}>-Force mono analysis
+slider4:cfg_alert=0<0,3,1{off,yellow,red,yellow + red}>-LUFS alerts
+slider5:cfg_yellow=-12<-60,0>-Yellow alert level
+slider6:cfg_red=-6<-60,0>-Red alert level
+
+options:no_meter
+
+@init
+
+<?
+  nch = max(max_nch,64);
+
+ function do_all_channels(fmt) local(p x c) global(nch) (
+   p=x=0;
+   while (x < nch) (
+     p+=1;
+     x>0 ? printf("num_ch > %d ? ( ",x);
+     c = x>=24 ? 8 : x>=8 ? 4 : 2;
+     loop(c, printf(fmt,x,x); x+=1);
+     printf("\n");
+   );
+   loop(p-1,printf(")"));
+ );
+?>
+
+BG_COLOR=$x000000;
+GRID_COLOR=$x7f7f7f;
+TEXT_COLOR=$xffffff;
+LUFS_COLOR=$x00bfff;
+RED_COLOR=$xff0000;
+YELLOW_COLOR=$xffff00;
+MONO_COLOR=$xffa500;
+
+LOUD_METER_UPDATE=0.100;
+LOUD_METER_SPEED=0.075;
+
+ext_noinit=1;
+ext_nodenorm=1;
+gfx_ext_retina=max(gfx_ext_retina,1);
+
+function alloc(sz) global()
+(
+  memset((this.top+=sz)-sz,0,sz);
+);
+
+function init(chidx)
+(
+  this.chan=chidx;
+  this.wt = chidx < 3 || num_ch < 6 ? 1 : chidx == 3 ? 0 : sqrt(2);
+  this.f1p1=this.f1p2=this.f2p1=this.f2p2=0;
+  this.ch_lufs_sum=0;
+);
+
+function proc(lspl)
+  local(f1p0 f2p0)
+  instance(wt ch_lufs_sum f1p1 f1p2 f2p1 f2p2)
+  global(f1a1 f1a2 f1b0 f1b1 f1b2 f2a1 f2a2 f2b0 f2b1 f2b2 lval win_pos)
+(
+  win_pos == 0 ? ch_lufs_sum=0;
+
+  lspl *= wt;
+
+  f1p0=lspl-f1a1*f1p1-f1a2*f1p2;
+  lspl=f1b0*f1p0+f1b1*f1p1+f1b2*f1p2;
+  f1p2=f1p1;
+  f1p1=f1p0;
+
+  f2p0=lspl-f2a1*f2p1-f2a2*f2p2;
+  lspl=f2b0*f2p0+f2b1*f2p1+f2b2*f2p2;
+  f2p2=f2p1;
+  f2p1=f2p0;
+
+  lval += (ch_lufs_sum += lspl*lspl);
+);
+
+function init_lufs_filters()
+  local(Vh Vb db f0 Q K a0)
+  global(f1a1 f1a2 f1b0 f1b1 f1b2 f2a1 f2a2 f2b0 f2b1 f2b2 srate)
+(
+  db=3.999843853973347;
+  f0=1681.974450955533;
+  Q=0.7071752369554196;
+  K=tan($pi*f0/srate);
+  Vh=pow(10, db/20);
+  Vb=pow(Vh, 0.4996667741545416);
+  a0=1+K/Q+K*K;
+  f1a1=2*(K*K-1)/a0;
+  f1a2=(1-K/Q+K*K)/a0;
+  f1b0=(Vh+Vb*K/Q+K*K)/a0;
+  f1b1=2*(K*K-Vh)/a0;
+  f1b2=(Vh-Vb*K/Q+K*K)/a0;
+
+  f0=38.13547087602444;
+  Q=0.5003270373238773;
+  K=tan($pi*f0/srate);
+  f2a1=2*(K*K-1)/(1+K/Q+K*K);
+  f2a2=(1-K/Q+K*K)/(1+K/Q+K*K);
+  f2b0=1;
+  f2b1=-2;
+  f2b2=1;
+);
+
+function Reset()
+(
+  init_lufs_filters();
+
+  alloc.top=0;
+  m_win_cnt=0.4/LOUD_METER_UPDATE;
+  win_pos=0;
+  win_cnt=0;
+  win_len=(LOUD_METER_UPDATE*srate)|0;
+  i_win_len=1/(m_win_cnt*win_len);
+
+  lufs_m_sum=0;
+  lufs_m_sum_max=0;
+  lufs_m_db=-100;
+
+  last_t=0;
+  th_lufs_m=0;
+
+  cur_buf=0;
+  lufs_buf=alloc(m_win_cnt);
+
+  <? do_all_channels("ch%d.init(%d); "); ?>;
+);
+
+Reset();
+
+@block
+
+want_reset = (num_ch > 0 && num_ch != last_nch) || srate != last_sr;
+last_nch=num_ch;
+last_sr=srate;
+want_reset ? Reset();
+
+@sample
+
+lval=0;
+<? do_all_channels("ch%d.proc(spl%d); "); ?>;
+
+(win_pos += 1) >= win_len ? (
+  win_pos=0;
+  win_cnt += 1;
+
+  prev_lval=lufs_buf[cur_buf];
+  lufs_buf[cur_buf]=lval;
+  (cur_buf += 1) >= m_win_cnt ? cur_buf=0;
+
+  lufs_m_sum += (lval-prev_lval)*i_win_len;
+
+  lufs_m_sum > 0 && win_cnt >= m_win_cnt ? (
+    lufs_m_sum > lufs_m_sum_max ? lufs_m_sum_max=lufs_m_sum;
+    lufs_m_db=-0.691+log(lufs_m_sum)*10/log(10);
+  ) : (
+    lufs_m_db=-100;
+  );
+);
+
+@gfx 80 300
+
+t=time_precise();
+speed = last_t ? 1.0-pow(0.5, (t-last_t)/LOUD_METER_SPEED) : 1;
+last_t=t;
+
+gfx_clear=((BG_COLOR&$xff)<<16)|(BG_COLOR&$xff00)|((BG_COLOR&$xff0000)>>16);
+
+FONT_SZ_MIN=12;
+FONT_SZ_MAX=16;
+fsz=FONT_SZ_MIN+min(gfx_w/100,FONT_SZ_MAX-FONT_SZ_MIN);
+fsz *= 1.0+cfg_textsize/10;
+gfx_ext_retina > 1 ? fsz *= 1.5;
+gfx_setfont(1,"Arial",fsz);
+rsz=2*gfx_ext_retina;
+
+xu=gfx_texth*3/4;
+yu=gfx_texth*7/8;
+
+want_vu = gfx_h > yu*7;
+want_axis = gfx_h > yu*10 && gfx_w > xu*14;
+want_capt = gfx_h > yu*4;
+want_max = gfx_h > yu*3;
+
+nch = cfg_mono ? 1 : max(num_ch,2);
+
+xl=xr=xu;
+want_axis ? xr += gfx_texth*2;
+
+vh = want_vu ? gfx_h-yu*5.5 : gfx_h/2-yu;
+y0 = want_vu ? gfx_h-yu*3.5 : gfx_h/2-yu*3/4;
+yt = (want_vu ? y0+yu : gfx_h/2)|0;
+ylo=gfx_h-yu;
+yhi=yu;
+
+want_lufs_m = 1;
+cols=want_lufs_m;
+colw = cols ? (gfx_w-xl-xr)/cols : gfx_w;
+
+x=gfx_w-xr-colw/2;
+
+function draw_str(ts tx ty tc)
+(
+  gfx_x=tx;
+  gfx_y=ty;
+  gfx_drawstr(ts,tc|256,tx,ty);
+);
+
+function format_dbv(hv)
+(
+  hv <= -72 ? "" : sprintf(#, "%+.1f", hv);
+);
+function scale_db1(v) global(cfg_yscale)
+(
+  v <= -72 ? 0 : v >= 0 ? 1 : pow(v*1/72+1,cfg_yscale);
+);
+
+function set_color(trgb)
+(
+  gfx_set((trgb&$xff0000)/$xff0000,(trgb&$xff00)/$xff00,(trgb&$xff)/$xff);
+);
+function set_alert_color(tdb, trgb)
+(
+  (cfg_alert == 2 || cfg_alert == 3) && tdb >= cfg_red ?
+    set_color(RED_COLOR) :
+  (cfg_alert == 1 || cfg_alert == 3) && tdb >= cfg_yellow ?
+    set_color(YELLOW_COLOR) :
+    set_color(trgb);
+);
+function set_text_alert_color(tdb)
+(
+  want_vu ? set_color(TEXT_COLOR) : set_alert_color(tdb, TEXT_COLOR);
+);
+
+function draw_grid(db hhi hlo) local(th)
+(
+  th=scale_db1(db)*vh;
+  hlo < 0 || hhi < 0 || (th > hlo+gfx_texth*5/4 && th < hhi-gfx_texth*5/4) ? (
+    gfx_line(xl,y0-th,gfx_w-xr,y0-th);
+    sprintf(#num,"%+.0f",db);
+    want_axis ? draw_str(#num,gfx_w-xr+gfx_texth*3/4,y0-th,4);
+    th;
+  ) : (
+    -1;
+  );
+);
+
+want_vu ? (
+  set_color(GRID_COLOR);
+  ty0=draw_grid(0,-1,-1);
+  ty12=draw_grid(-12,-1,-1);
+  ty24=draw_grid(-24,-1,-1);
+  ty48=draw_grid(-48,-1,-1);
+  ty6=draw_grid(-6,ty0,ty12);
+  ty18=draw_grid(-18,ty12,ty24);
+  ty36=draw_grid(-36,ty24,ty48);
+  ty60=draw_grid(-60,ty48,0);
+  ty3=draw_grid(-3,ty0,ty6 >= 0 ? ty6 : ty12);
+  ty30=draw_grid(-30,ty24,ty36 >= 0 ? ty36 : ty24);
+  ty42=draw_grid(-42,ty36 >= 0 ? ty36 : ty24,ty48);
+  set_color(TEXT_COLOR);
+  gfx_line(xl,y0,gfx_w-xr,y0);
+);
+
+want_lufs_m ? (
+  want_capt ? (
+    set_color(TEXT_COLOR);
+    draw_str("LUFS-M",x,yt,5);
+  );
+  lufs_m_db > -100 ? (
+    db = cfg_mono ? lufs_m_db-3 : lufs_m_db;
+    want_vu ? (
+      th_lufs_m += (scale_db1(db)-th_lufs_m)*speed;
+      th=(vh*th_lufs_m)|0;
+      set_alert_color(db,LUFS_COLOR);
+      gfx_rect(x-colw/4,y0-th,colw/2,th);
+    );
+    set_text_alert_color(db);
+    draw_str(format_dbv(db),x,ylo,5);
+  );
+  lufs_m_sum_max > 0 ? (
+    db=-0.691+log(lufs_m_sum_max)*10/log(10);
+    cfg_mono ? db -= 3;
+    want_vu ? (
+      set_alert_color(db,LUFS_COLOR);
+      gfx_rect(x-colw/4,y0-scale_db1(db)*vh,colw/2,rsz);
+    );
+    want_max ? (
+      set_text_alert_color(db);
+      draw_str(format_dbv(db),x,yhi,5);
+    );
+  );
+  x -= colw;
+);
+
+want_axis && !(gfx_ext_flags&1) ? (
+  set_color(MONO_COLOR);
+  tc1=(gfx_w-gfx_texth*27/16)|0;
+  tc2=(gfx_w-gfx_texth*21/16)|0;
+  tr=(gfx_texth*7/16)|0;
+  cfg_mono ? gfx_mode = 1;
+  gfx_circle(tc1,yt,tr,cfg_mono?1:0,0);
+  gfx_circle(tc2,yt,tr,cfg_mono?1:0,0);
+  cfg_mono ? (
+    set_color(BG_COLOR);
+    gfx_x=tc1-tr; gfx_y=yt-tr+1;
+    gfx_drawstr("M",1|4|256,tc2+tr,yt+tr+1);
+  );
+  has_click && abs(mouse_x-(tc1+tc2)/2) <= tr*3/2+1 && abs(mouse_y-yt) <= tr+1 ? (
+    cfg_mono=!cfg_mono;
+    slider_automate(cfg_mono);
+    has_click=0;
+  );
+);
+
+has_click = (mouse_cap&1) && !(last_cap&1) ? 1 : 0;
+last_cap=mouse_cap;
+has_click ? Reset();

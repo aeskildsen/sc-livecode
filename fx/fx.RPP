@@ -1,0 +1,656 @@
+<REAPER_PROJECT 0.1 "7.53/linux-x86_64" 1764794314 0
+  <NOTES 0 2
+  >
+  RIPPLE 0 0
+  GROUPOVERRIDE 0 0 0 0
+  AUTOXFADE 128
+  ENVATTACH 3
+  POOLEDENVATTACH 0
+  TCPUIFLAGS 0
+  MIXERUIFLAGS 11 48
+  ENVFADESZ10 40
+  PEAKGAIN 1
+  FEEDBACK 0
+  PANLAW 1
+  PROJOFFS 0 0 0
+  MAXPROJLEN 0 0
+  GRID 3199 8 1 8 1 0 0 0
+  TIMEMODE 1 5 -1 30 0 0 -1
+  VIDEO_CONFIG 0 0 65792
+  PANMODE 3
+  PANLAWFLAGS 3
+  CURSOR 0
+  ZOOM 25.47655226259532 0 0
+  VZOOMEX 3 92
+  USE_REC_CFG 0
+  RECMODE 1
+  SMPTESYNC 0 30 100 40 1000 300 0 0 1 0 0
+  LOOP 1
+  LOOPGRAN 0 4
+  RECORD_PATH "Media" ""
+  <RECORD_CFG
+    ZXZhdxgAAQ==
+  >
+  <APPLYFX_CFG
+  >
+  RENDER_FILE ""
+  RENDER_PATTERN ""
+  RENDER_FMT 0 2 0
+  RENDER_1X 0
+  RENDER_RANGE 1 0 0 0 1000
+  RENDER_RESAMPLE 3 0 1
+  RENDER_ADDTOPROJ 0
+  RENDER_STEMS 0
+  RENDER_DITHER 0
+  RENDER_TRIM 0.000001 0.000001 0 0
+  TIMELOCKMODE 1
+  TEMPOENVLOCKMODE 1
+  ITEMMIX 1
+  DEFPITCHMODE 589824 0
+  TAKELANE 1
+  SAMPLERATE 44100 0 0
+  <RENDER_CFG
+    ZXZhdxgAAQ==
+  >
+  LOCK 1
+  <METRONOME 6 2
+    VOL 0.25 0.125
+    BEATLEN 4
+    FREQ 1760 880 1
+    SAMPLES "" "" "" ""
+    SPLIGNORE 0 0
+    SPLDEF 2 660 "" 0 ""
+    SPLDEF 3 440 "" 0 ""
+    PATTERN 0 169
+    PATTERNSTR ABBB
+    MULT 1
+  >
+  GLOBAL_AUTO -1
+  TEMPO 122 4 4 0
+  PLAYRATE 1 0 0.25 4
+  SELECTION 0 0
+  SELECTION2 0 0
+  MASTERAUTOMODE 0
+  MASTERTRACKHEIGHT 0 0
+  MASTERPEAKCOL 16576
+  MASTERMUTESOLO 0
+  MASTERTRACKVIEW 0 0.6667 0.5 0.5 0 0 0 0 0 0 0 0 0 0 1
+  MASTERHWOUT 0 0 1 0 0 0 0 -1
+  MASTER_NCH 2 2
+  MASTER_VOLUME 1 0 -1 -1 1
+  MASTER_PANMODE 3
+  MASTER_PANLAWFLAGS 3
+  MASTER_FX 1
+  MASTER_SEL 0
+  <MASTERFXLIST
+    WNDRECT 1090 1442 764 956
+    SHOW 0
+    LASTSEL 1
+    DOCKED 0
+    BYPASS 0 0 0
+    <LV2 "LV2: LSP Limiter Stereo (LSP LV2)" http://lsp-plug.in/plugins/lv2/limiter_stereo ""
+      CFG 0 785 537 ""
+      P showpmx 0 in2lk 0 lk2in 0 lk2sc 0 enabled 1 g_in 1 g_out 1 scp 1 alr 1 alr_at 5 alr_rt 50 mode 0 th 0.635887622833251953
+      P knee 1 boost 1 lk 20 at 5 rt 4.756433963775634766 ovs 0 dith 0 pause 0 clear 0 extsc 0 slink 100 igv_l 1
+      P ogv_l 1 scgv_l 1 grgv_l 1 igv_r 1 ogv_r 1 scgv_r 1 grgv_r 1
+      <STATE
+        S http://lsp-plug.in/plugins/lv2/limiter_stereo/ports#link "" 3
+        <L http://lsp-plug.in/plugins/lv2/limiter_stereo/preset_state "" http://lsp-plug.in/types/lv2/PresetState 3
+          S http://lsp-plug.in/types/lv2/PresetState#name "" 3
+          I http://lsp-plug.in/types/lv2/PresetState#flags 0 3
+          I http://lsp-plug.in/types/lv2/PresetState#tab 0 3
+        >
+        <T http://lsp-plug.in/plugins/lv2/limiter_stereo/KVT 3
+        >
+      >
+    >
+    FLOATPOS 320 1440 1536 960
+    FXID {BC270E45-3249-2A34-3C57-DE9802C5149D}
+    WAK 0 0
+    BYPASS 0 0 0
+    <JS meters/loudness_peak_clips ""
+      2 0 1.8 1 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >
+    JS_DIMS 496 907
+    FLOATPOS 1090 1442 764 956
+    FXID {D6562963-0BE6-AE2F-AB7E-2328F033FADB}
+    WAK 0 0
+  >
+  <MASTERPLAYSPEEDENV
+    EGUID {FF565467-4EC2-1DD1-F71D-ADC56819E913}
+    ACT 0 -1
+    VIS 0 1 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 0 -1 -1
+  >
+  <TEMPOENVEX
+    EGUID {D7676767-7A67-7A07-5892-7113758EB4AB}
+    ACT 0 -1
+    VIS 1 0 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 1 -1 -1
+  >
+  <PROJBAY
+  >
+  <TRACK {DFEDC5FA-95A4-78D8-1372-4CA293EF6401}
+    NAME Lead
+    PEAKCOL 17814073
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 1 1024 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "synth.png"
+    FX 1
+    TRACKID {DFEDC5FA-95A4-78D8-1372-4CA293EF6401}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+    >
+  >
+  <TRACK {F4CBE6BD-91F6-4A07-3F7C-C57B5E735BF3}
+    NAME Main
+    PEAKCOL 17814073
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 1 1026 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "synth.png"
+    FX 1
+    TRACKID {F4CBE6BD-91F6-4A07-3F7C-C57B5E735BF3}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+    >
+  >
+  <TRACK {880A9D14-389B-C1A3-EABE-8BDF52F26F7C}
+    NAME Misc
+    PEAKCOL 17476130
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 1 1038 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "fx.png"
+    FX 1
+    TRACKID {880A9D14-389B-C1A3-EABE-8BDF52F26F7C}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+  >
+  <TRACK {98E37DBD-4340-6020-410F-BE834D0B3395}
+    NAME "Lead Bus"
+    PEAKCOL 17137440
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 -1 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {98E37DBD-4340-6020-410F-BE834D0B3395}
+    PERF 0
+    AUXRECV 0 0 1 0 0 0 0 0 0 -1:U 0 -1 ''
+    AUXRECV 1 0 1 0 0 0 0 0 0 -1:U 0 -1 ''
+    AUXRECV 2 0 1 0 0 0 0 0 0 -1:U 0 -1 ''
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <LV2 "LV2: LSP Compressor Stereo (LSP LV2)" http://lsp-plug.in/plugins/lv2/compressor_stereo ""
+        CFG 0 944 548 ""
+        P showpmx 0 in2lk 0 lk2in 0 lk2sc 0 enabled 1 g_in 1 g_out 1 showmx 0 showsc 0 pause 0 clear 0 ssplit 0
+        P sscs 0 sct 0 scm 1 sla 0 scl 0 scs 0 scr 10 scp 1 shpm 0 shpf 10 slpm 0 slpf 20000 cm 0 al 0.110170215368270874
+        P at 8.773568153381347656 rrl 0 rt 42.786014556884765625 hold 0 cr 5.134528160095214844 kn 0.298734873533248901
+        P bth 0.000250999990385026 bsa 1.995260000228881836 mk 2.477726459503173828 cdr 0 cwt 1 cdw 100 slv_l 1
+        P elv_l 1 grv_l 1 ilv_l 1 olv_l 1 slv_r 1 elv_r 1 grv_r 1 ilv_r 1 olv_r 1
+        <STATE
+          S http://lsp-plug.in/plugins/lv2/compressor_stereo/ports#link "" 3
+          <L http://lsp-plug.in/plugins/lv2/compressor_stereo/preset_state "" http://lsp-plug.in/types/lv2/PresetState 3
+            S http://lsp-plug.in/types/lv2/PresetState#name "" 3
+            I http://lsp-plug.in/types/lv2/PresetState#flags 0 3
+            I http://lsp-plug.in/types/lv2/PresetState#tab 0 3
+          >
+          <T http://lsp-plug.in/plugins/lv2/compressor_stereo/KVT 3
+          >
+        >
+      >
+      FLOATPOS 1090 1442 764 956
+      FXID {0A1DF536-01D1-37FF-4443-CC4071DF4ECA}
+      WAK 0 0
+    >
+  >
+  <TRACK {B3C8942C-48F0-7853-CDCB-6B0262A09838}
+    NAME Bass
+    PEAKCOL 17030364
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 0.46695413065612 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 1 1028 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 4
+    TRACKIMGFN "bass.png"
+    FX 1
+    TRACKID {B3C8942C-48F0-7853-CDCB-6B0262A09838}
+    PERF 0
+    AUXRECV 6 0 1 0 0 0 0 0 2 -1:U 0 -1 ''
+    MIDIOUT -1
+    MAINSEND 0 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <LV2 "LV2: LSP Sidechain Compressor Stereo (LSP LV2) (4->2ch)" http://lsp-plug.in/plugins/lv2/sc_compressor_stereo ""
+        CFG 0 944 548 ""
+        <OUT_PINS
+        >
+        P showpmx 0 in2lk 0 lk2in 0 lk2sc 0 in2sc 0 sc2in 0 sc2lk 0 enabled 1 g_in 1 g_out 1 showmx 0 showsc 0
+        P pause 0 clear 0 ssplit 0 sscs 0 sct 2 scm 1 sla 0 scl 0 scs 0 scr 10 scp 1 shpm 0 shpf 10 slpm 0 slpf 20000
+        P cm 0 al 0.059112038463354111 at 20 rrl 0 rt 100 hold 0 cr 4 kn 0.501179993152618408 bth 0.000250999990385026
+        P bsa 1.995260000228881836 mk 1 cdr 0 cwt 1 cdw 100 slv_l 1 elv_l 1 grv_l 1 ilv_l 1 olv_l 1 slv_r 1 elv_r 1
+        P grv_r 1 ilv_r 1 olv_r 1
+        <STATE
+          S http://lsp-plug.in/plugins/lv2/sc_compressor_stereo/ports#link "" 3
+          <L http://lsp-plug.in/plugins/lv2/sc_compressor_stereo/preset_state "" http://lsp-plug.in/types/lv2/PresetState 3
+            S http://lsp-plug.in/types/lv2/PresetState#name "" 3
+            I http://lsp-plug.in/types/lv2/PresetState#flags 0 3
+            I http://lsp-plug.in/types/lv2/PresetState#tab 0 3
+          >
+          <T http://lsp-plug.in/plugins/lv2/sc_compressor_stereo/KVT 3
+          >
+        >
+      >
+      FLOATPOS 320 1467 1536 933
+      FXID {D63A0A2E-4BD5-3F5F-4573-9B9AE10C247A}
+      WAK 0 0
+      BYPASS 0 0 0
+      <VST "VST: ReaEQ (Cockos)" reaeq.vst.so 0 "" 1919247729<56535472656571726561657100000000> ""
+        cWVlcu5e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAAzQAAAAEAAAAAABAA
+        IQAAAAUAAAAAAAAAAQAAAGLcoQtl81ZAKY2gJK6a4D+amZmZmZnpPwEIAAAAAAAAAAAAAAAAwHJAAAAAAAAA8D8AAAAAAAAAQAEIAAAAAAAAAAAAAAAAQI9AAAAAAAAA
+        8D8AAAAAAAAAQAEBAAAAAAAAAAAAAAAAiLNAAAAAAAAA8D+amZmZmZnpPwEEAAAAAAAAAAAAAAAAAFlAAAAAAAAA8D8AAAAAAAAAQAEBAAAAAQAAAAAAAAAAAPA/AAAA
+        AAAGAACJAwAAAgAAAA==
+        AFByb2dyYW0gMQAQAAAA
+      >
+      FLOATPOS 320 1467 1536 933
+      FXID {94DA26A1-9DDA-A3C5-9201-E33416EA63F1}
+      WAK 0 0
+    >
+  >
+  <TRACK {B54BABA5-5CF7-218D-DCE6-D6F14F2BE081}
+    NAME "Bass Bus"
+    PEAKCOL 17476544
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 -1 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 4
+    FX 1
+    TRACKID {B54BABA5-5CF7-218D-DCE6-D6F14F2BE081}
+    PERF 0
+    AUXRECV 4 0 1 0 0 0 0 0 0 -1:U 0 -1 ''
+    AUXRECV 6 0 1 0 0 0 0 0 0 -1:U 0 -1 ''
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <LV2 "LV2: LSP Compressor Stereo (LSP LV2)" http://lsp-plug.in/plugins/lv2/compressor_stereo ""
+        CFG 0 944 548 ""
+        <IN_PINS
+        >
+        <OUT_PINS
+        >
+        P showpmx 0 in2lk 0 lk2in 0 lk2sc 0 enabled 1 g_in 1 g_out 1 showmx 0 showsc 0 pause 0 clear 0 ssplit 0
+        P sscs 0 sct 0 scm 1 sla 0 scl 0 scs 0 scr 10 scp 1 shpm 0 shpf 10 slpm 0 slpf 20000 cm 0 al 0.110170215368270874
+        P at 8.773568153381347656 rrl 0 rt 42.786014556884765625 hold 0 cr 5.134528160095214844 kn 0.298734873533248901
+        P bth 0.000250999990385026 bsa 1.995260000228881836 mk 3.162278175354003906 cdr 0 cwt 1 cdw 100 slv_l 1
+        P elv_l 1 grv_l 1 ilv_l 1 olv_l 1 slv_r 1 elv_r 1 grv_r 1 ilv_r 1 olv_r 1
+        <STATE
+          S http://lsp-plug.in/plugins/lv2/compressor_stereo/ports#link "" 3
+          <L http://lsp-plug.in/plugins/lv2/compressor_stereo/preset_state "" http://lsp-plug.in/types/lv2/PresetState 3
+            S http://lsp-plug.in/types/lv2/PresetState#name "" 3
+            I http://lsp-plug.in/types/lv2/PresetState#flags 0 3
+            I http://lsp-plug.in/types/lv2/PresetState#tab 0 3
+          >
+          <T http://lsp-plug.in/plugins/lv2/compressor_stereo/KVT 3
+          >
+        >
+      >
+      FLOATPOS 0 0 0 0
+      FXID {438CD0D6-4621-D2E6-870E-031D99180336}
+      WAK 0 0
+    >
+  >
+  <TRACK {CDD8096D-1FB6-2D1E-0116-646A8347C1E4}
+    NAME Kick
+    PEAKCOL 31231816
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 1 1030 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "beats.png"
+    FX 1
+    TRACKID {CDD8096D-1FB6-2D1E-0116-646A8347C1E4}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+    >
+  >
+  <TRACK {4A7A0C78-1542-F37C-BE60-2A53896792E3}
+    NAME Snare
+    PEAKCOL 31231816
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 1 1032 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "beats.png"
+    FX 1
+    TRACKID {4A7A0C78-1542-F37C-BE60-2A53896792E3}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+  >
+  <TRACK {3AA080C9-2A70-3EA9-3A73-0EEDC014F43E}
+    NAME Hihat
+    PEAKCOL 31231816
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 1 1034 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "beats.png"
+    FX 1
+    TRACKID {3AA080C9-2A70-3EA9-3A73-0EEDC014F43E}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+  >
+  <TRACK {55E93CE7-7FC3-48B2-3367-69001D75FA38}
+    NAME Perc
+    PEAKCOL 31231816
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 1 1036 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    TRACKIMGFN "beats.png"
+    FX 1
+    TRACKID {55E93CE7-7FC3-48B2-3367-69001D75FA38}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <LV2 "LV2: LSP Compressor Stereo (LSP LV2)" http://lsp-plug.in/plugins/lv2/compressor_stereo ""
+        CFG 0 1888 1099 ""
+        P showpmx 0 in2lk 0 lk2in 0 lk2sc 0 enabled 1 g_in 1 g_out 1 showmx 0 showsc 0 pause 0 clear 0 ssplit 1
+        P sscs 0 sct 0 scm 1 sla 0 scl 0 scs 0 scr 10 scp 1 shpm 0 shpf 10 slpm 0 slpf 20000 cm 0 al 0.12426622211933136
+        P at 2.581176042556762695 rrl 0 rt 33.33199310302734375 hold 0 cr 4 kn 0.501179993152618408 bth 0.000250999990385026
+        P bsa 1.995260000228881836 mk 1.215505480766296387 cdr 0 cwt 1 cdw 100 slv_l 1 elv_l 1 grv_l 1 ilv_l 1
+        P olv_l 1 slv_r 1 elv_r 1 grv_r 1 ilv_r 1 olv_r 1
+        <STATE
+          S http://lsp-plug.in/plugins/lv2/compressor_stereo/ports#link "" 3
+          <L http://lsp-plug.in/plugins/lv2/compressor_stereo/preset_state "" http://lsp-plug.in/types/lv2/PresetState 3
+            S http://lsp-plug.in/types/lv2/PresetState#name "" 3
+            I http://lsp-plug.in/types/lv2/PresetState#flags 0 3
+            I http://lsp-plug.in/types/lv2/PresetState#tab 0 3
+          >
+          <T http://lsp-plug.in/plugins/lv2/compressor_stereo/KVT 3
+          >
+        >
+      >
+      FLOATPOS 2442 2992 1888 1158
+      FXID {2686653B-B650-EA2A-8184-50BA094BDA69}
+      WAK 0 0
+    >
+  >
+  <TRACK {10D009CD-BC3E-F66F-0D2C-BCA2023CCCBB}
+    NAME "Drum Bus"
+    PEAKCOL 29396744
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 0.86872391523433 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 -1 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {10D009CD-BC3E-F66F-0D2C-BCA2023CCCBB}
+    PERF 0
+    AUXRECV 7 0 1 0 0 0 0 0 0 -1:U 0 -1 ''
+    AUXRECV 8 0 1 0 0 0 0 0 0 -1:U 0 -1 ''
+    AUXRECV 9 0 1 0 0 0 0 0 0 -1:U 0 -1 ''
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <LV2 "LV2: LSP Compressor Stereo (LSP LV2)" http://lsp-plug.in/plugins/lv2/compressor_stereo ""
+        CFG 0 944 548 ""
+        P showpmx 0 in2lk 0 lk2in 0 lk2sc 0 enabled 1 g_in 1 g_out 1 showmx 0 showsc 0 pause 0 clear 0 ssplit 0
+        P sscs 0 sct 0 scm 1 sla 0 scl 0 scs 0 scr 10 scp 1 shpm 0 shpf 10 slpm 0 slpf 20000 cm 0 al 0.110170215368270874
+        P at 8.773568153381347656 rrl 0 rt 42.786014556884765625 hold 0 cr 5.134528160095214844 kn 0.298734873533248901
+        P bth 0.000250999990385026 bsa 1.995260000228881836 mk 3.162278175354003906 cdr 0 cwt 1 cdw 100 slv_l 1
+        P elv_l 1 grv_l 1 ilv_l 1 olv_l 1 slv_r 1 elv_r 1 grv_r 1 ilv_r 1 olv_r 1
+        <STATE
+          S http://lsp-plug.in/plugins/lv2/compressor_stereo/ports#link "" 3
+          <L http://lsp-plug.in/plugins/lv2/compressor_stereo/preset_state "" http://lsp-plug.in/types/lv2/PresetState 3
+            S http://lsp-plug.in/types/lv2/PresetState#name "" 3
+            I http://lsp-plug.in/types/lv2/PresetState#flags 0 3
+            I http://lsp-plug.in/types/lv2/PresetState#tab 0 3
+          >
+          <T http://lsp-plug.in/plugins/lv2/compressor_stereo/KVT 3
+          >
+        >
+      >
+      FLOATPOS 1090 1442 764 956
+      FXID {0D301B5E-E0AA-8965-5C09-A06DD619EDCE}
+      WAK 0 0
+    >
+  >
+  <TRACK {512BB176-7748-8C9C-9DD4-2A795900BA76}
+    NAME Reverb
+    PEAKCOL 29364588
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 0.94189096025834 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 -1 1 0 0 0 0 0
+    VU 64
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {512BB176-7748-8C9C-9DD4-2A795900BA76}
+    PERF 0
+    AUXRECV 0 0 0.34046396163343 0 0 0 0 0 0 -1:U 0 -1 ''
+    AUXRECV 1 0 2.08145436628637 0 0 0 0 0 0 -1:U 0 -1 ''
+    AUXRECV 2 0 1 0 0 0 0 0 0 -1:U 0 -1 ''
+    AUXRECV 7 0 0.23132300161546 0 0 0 0 0 0 -1:U 0 -1 ''
+    AUXRECV 8 0 0.13880929663105 0 0 0 0 0 0 -1:U 0 -1 ''
+    AUXRECV 9 0 0.46415452868199 0 0 0 0 0 0 -1:U 0 -1 ''
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <LV2 "LV2: Calf Reverb (Calf Studio Gear)" http://calf.sourceforge.net/plugins/Reverb ""
+        CFG 1 0 0 Room
+        MIDI events_in 24 0 
+        MIDI events_out 25 0 
+        P decay_time 1.319800019264221191 hf_damp 5508.4599609375 room_size 2 diffusion 0.540000021457672119 amount 0.998000025749206543
+        P dry 0 predelay 25 bass_cut 1678.3399658203125 treble_cut 20000 on 1 level_in 1 level_out 1
+      >
+      PRESETNAME Room
+      FLOATPOS 1090 1442 764 956
+      FXID {CF215B17-8952-D6B8-A6B0-42473589C1E0}
+      WAK 0 0
+    >
+  >
+>
